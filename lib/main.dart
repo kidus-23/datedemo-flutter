@@ -5,15 +5,26 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
-    print(DateFormat.yMMMMEEEEd().format(DateTime.parse('2024-12-13')));
-    return const Scaffold(
-      
-      
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(DateFormat.yMMMMEEEEd().format(DateTime.parse('2024-12-13'))),
+            Text(DateFormat.yMMMMEEEEd().format(DateTime.now())),
+          ],
+        ),
+      ),
     );
   }
 }
